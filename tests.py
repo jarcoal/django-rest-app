@@ -39,12 +39,12 @@ class TestApiCreate({{class_name}}Test):
     """
     def test_anon(self):
         "anon should not be able to create {{app_name}}"
-        response = self.anonymous_client.post(self.list_url, self.bookable_json)
+        response = self.anonymous_client.post(self.list_url, self.{{app_name}}_json)
         self.assertEqual(response.status_code, 401)
 
     def test_authenticated(self):
         response = self.authenticated_client.get(self.list_url,
-            self.bookable_json)
+            self.{{app_name}}_json)
         self.assertEqual(response.status_code, 200)
 
 class TestApiUpdate({{class_name}}Test):
@@ -59,7 +59,7 @@ class TestApiUpdate({{class_name}}Test):
 
     def test_authenticated(self):
         response = self.authenticated_client.put(self.detail_url,
-            self.bookable_json)
+            self.{{app_name}}_json)
         self.assertEqual(response.status_code, 200)
 
 class TestApiRetrieve({{class_name}}Test):
